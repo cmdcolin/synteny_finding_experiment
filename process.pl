@@ -18,7 +18,6 @@ sub readRecord {
 }
 
 while (my $lines = readRecord()) {
-#    print $lines;
     my $output = `efetch -db protein -id $lines -format ipg|grep -v Start`;
     print $output;
 }
