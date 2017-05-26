@@ -14,7 +14,7 @@ sub readNLines {
 }
 
 sub readRecord {
-    return join(',',readNLines(20))
+    return join(',',readNLines(50))
 }
 
 while (my $lines = readRecord()) {
