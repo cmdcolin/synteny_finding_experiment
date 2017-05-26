@@ -4,7 +4,7 @@
 [ -f output.m8 ] || diamond blastp -d target_db --query $2 -o output.m8
 
 echo "Processing output"
-[ -f genomics_locs.txt ] || cut -f2 output.m8|perl process.pl|grep NW_|cut -f 2,3,4,5,6>genomic_locs.txt
+[ -f genomics_locs.txt ] || cut -f2 output.m8|sort|uniq|perl process.pl|grep NW_|cut -f 2,3,4,5,6>genomic_locs.txt
 sort genomic_locs.txt|uniq > genomic_locs.uniq.txt
 echo "Sorting output 1/2"
 LC_ALL=C sort -k5,5 genomic_locs.uniq.txt > genomic_locs.sort.txt
