@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 echo "Performing alignments"
-[ -f output.m8 ] || makeblastdb --dbtype prot --in $1 --out target_db
-[ -f output.m8 ] || blastp --db target_db --query $2 --out output.m8
+[ -f output.m8 ] || makeblastdb -dbtype prot -in $1 -out target_db
+[ -f output.m8 ] || blastp -db target_db -query $2 -out output.m8
 
 echo "Processing output"
 [ -f genomic_locs.txt ] || cut -f2 output.m8|sort|uniq|perl process.pl|grep NW_|cut -f 2,3,4,5,6>genomic_locs.txt
