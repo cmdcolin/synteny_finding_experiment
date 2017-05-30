@@ -1,4 +1,4 @@
 genomic_locs.*
-output.m8
 target_db.*
-mrnas.txt
+mrnas.*
+output.*
