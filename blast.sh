@@ -25,4 +25,4 @@ echo "Join 2/2"
 LC_ALL=C sort -k10,10 output.joined.m8 > output.sort.m8
 join -1 5 -2 10 -t $'\t' genomic_locs.sort.txt output.sort.m8 > output.joined.m8
 wc output.joined.m8
-awk -v OFS='\t' '{print $2, $7, $15, $16, $17, $18, $19, $3, $4, $10, $11, $23, $24}' output.joined.m8 > output.blasttab
+awk -v OFS='\t' '{print $2, $7, $15, $16, $17, $18, $3, $4, $10, $11, $23, $24}' output.joined.m8 > output.blasttab
