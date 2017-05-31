@@ -16,7 +16,7 @@ echo "Join 1/2"
 join -1 9 -2 1 <(sort -k9,9 mrnas.txt) <(sort -k1,1 output.m8) > output.joined.m8
 wc output.joined.m8
 echo "Join 2/2"
-join -1 5 -2 10 <(cat genomic_locs.txt|sort|uniq|sort -k5,5 genomic_locs.uniq.txt) <(sort -k10,10 output.joined.m8) > output.joined2.m8
+join -1 5 -2 10 <(cat genomic_locs.txt|sort|uniq|sort -k5,5) <(sort -k10,10 output.joined.m8) > output.joined2.m8
 wc output.joined2.m8
-awk -v OFS='\t' '{print $2, $7, $15, $16, $17, $18, $19, $3, $4, $10, $11, $23, $24}' output.joined2.m8 > output.blasttab
+awk -v OFS='\t' '{print $2, $7, $15, $16, $17, $18, $3, $4, $10, $11, $23, $24}' output.joined2.m8 > output.blasttab
 
